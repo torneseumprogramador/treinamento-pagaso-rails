@@ -1,0 +1,19 @@
+<%#= form_for contato, html: { onsubmit: "atualizar(event)" } do |f| %>
+<%= form_for contato, html: { onsubmit: "return validarForm(event)" } do |f| %>
+  <div class="form-group">
+    <%= f.label :nome, "Nome *:" %>
+    <%= f.text_field :nome, class: "form-control", placeholder: "Digite seu nome", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, "E-mail *:" %>
+    <%= f.email_field :email, class: "form-control", placeholder: "Digite seu e-mail", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :observacao, "Observação:" %>
+    <%= f.text_area :observacao, class: "form-control", placeholder: "Digite sua observação", rows: 4 %>
+  </div>
+
+  <%= f.submit "Enviar", class: "btn btn-primary", data: { disable_with: false } %>
+<% end %>
