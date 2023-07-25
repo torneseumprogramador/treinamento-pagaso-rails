@@ -6,6 +6,7 @@ class AlunosController < ApplicationController
   # GET /alunos or /alunos.json
   def index
     @alunos = Aluno.all
+    @alunos = @alunos.where("lower(nome) like ?", "%#{params[:nome].downcase}%") if params[:nome].present?
   end
 
   # GET /alunos/1 or /alunos/1.json
