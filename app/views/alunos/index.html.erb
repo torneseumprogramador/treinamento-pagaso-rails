@@ -3,17 +3,45 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Aluno
   <% end %>
-  <h1>Listing alunos</h1>
+  <h1>Lista de alunos</h1>
+</div>
+
+<div>
+  <form class="form-horizontal" action="/alunos" accept-charset="UTF-8" method="get">
+    <div class="form-group">
+      <label class="col-sm-1 control-label" for="aluno_nome">Nome</label>
+      <div class="col-sm-11">
+        <input class="form-control" type="text" name="nome" id="aluno_nome">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-1 control-label" for="aluno_email">Email</label>
+      <div class="col-sm-11">
+        <input class="form-control" type="text" name="email" id="aluno_email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-1 control-label" for="aluno_obs">Obs</label>
+      <div class="col-sm-11">
+        <input class="form-control" type="text" name="obs" id="aluno_obs">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-12" style="text-align:right">
+        <input type="submit" value="Buscar" class="btn btn-primary" data-disable-with="Create Aluno">
+      </div>
+    </div>
+  </form>
 </div>
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Obs</th>
-            <th></th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Obs</th>
+        <th></th>
         <th></th>
         <th></th>
       </tr>
