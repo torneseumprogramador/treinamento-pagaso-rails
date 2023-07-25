@@ -16,6 +16,7 @@ rake db:migrate
 ```shell
 ### A fazer ###
 busca por in, 
+between
 por join, 
 por union
 grup by
