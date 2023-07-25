@@ -11,3 +11,13 @@ rails s
 rails g model contato nome:string{150} email:string{200} observacao:text
 rake db:migrate
 ```
+
+
+```shell
+### A fazer ###
+busca por in, 
+por join, 
+por union
+grup by
+outros
+`````
