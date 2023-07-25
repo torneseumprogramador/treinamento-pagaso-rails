@@ -1,4 +1,6 @@
 class AlunosController < ApplicationController
+  # before_action :testando_hook, except: [:show]
+  # before_action :testando_hook, only: [:show]
   before_action :set_aluno, only: %i[ show edit update destroy ]
 
   # GET /alunos or /alunos.json
@@ -66,5 +68,9 @@ class AlunosController < ApplicationController
     # Only allow a list of trusted parameters through.
     def aluno_params
       params.require(:aluno).permit(:nome, :email, :obs)
+    end
+
+    def testando_hook
+      puts "======== oi =========="
     end
 end
