@@ -18,3 +18,17 @@
     width: 70px;
     margin: 5px;
  }
+
+
+ .divBuscaAutoComplete{
+   display: block;
+   width: 97%;
+   max-height: 200px;
+   position: absolute;
+   border: 1px solid #cfcfcf;
+   border-radius: 4px;
+   background: #d6d6d6;
+   z-index: 1;
+   margin-top: 2px;
+   overflow: scroll;
+ }

@@ -15,11 +15,13 @@ rake db:migrate
 
 ```shell
 ### A fazer ###
-busca por in, 
+busca por > <, 
 between
+busca por in,
+busca autocomplete
+
 por join, 
 por union
 grup by
-busca autocomplete
 outros
 `````

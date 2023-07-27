@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require bootstrap
 //= require_tree .
 
@@ -167,3 +166,41 @@ const validarForm = function(event){
 
   return true;
 }
+
+
+document.addEventListener('DOMContentLoaded', () =>{
+  const campoBusca = document.querySelector(".autocomplete-nome-aluno");
+  if(campoBusca){
+    campoBusca.onkeyup = async (e) =>{
+      const valorDigitado = campoBusca.value;
+
+      let divBuscaAutoComplete = document.querySelector(".divBuscaAutoComplete");
+      if(!divBuscaAutoComplete){
+        const divBuscaAutoComplete = document.createElement("div");
+        divBuscaAutoComplete.setAttribute("class", "divBuscaAutoComplete");
+        campoBusca.parentNode.append(divBuscaAutoComplete);
+      }
+
+      divBuscaAutoComplete = document.querySelector(".divBuscaAutoComplete");
+
+      const response = await fetch(`/alunos.json?nome=${valorDigitado}`);
+      if (!response.ok) {
+        console.log('Erro ao carregar os dados dos alunos.');
+        return;
+      }
+
+      const alunosData = await response.json();
+
+      divBuscaAutoComplete.innerHTML = `
+        <ul>
+          ${ 
+            alunosData.map((aluno) => { return `<li><a href='/alunos?nome=${aluno.nome}'>${aluno.nome}</a></li>` }).join("")
+          }
+        </ul>
+      `;
+    }
+  }
+
+});
+
+

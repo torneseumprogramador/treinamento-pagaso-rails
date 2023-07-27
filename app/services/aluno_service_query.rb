@@ -10,5 +10,19 @@ class AlunoServiceQuery
 
         alunos = alunos.where("idade >= ?", params[:idade_ini]) if params[:idade_ini].present?
         alunos = alunos.where("idade <= ?", params[:idade_fim]) if params[:idade_fim].present?
+
+        # alunos = alunos.where("idade between ? and ?", params[:idade_ini], params[:idade_fim]) if params[:idade_ini].present? && params[:idade_fim].present?
+
+        if params[:ids].present?
+            array_ids = params[:ids].split(",").map{|s| s.to_i}.find_all{|n| n > 0} rescue []
+            alunos = alunos.where(id: array_ids)
+        end
+
+
+        puts "===================="
+        puts alunos.to_sql
+        puts "===================="
+
+        alunos
     end
 end
