@@ -1,5 +1,7 @@
 class Aluno < ApplicationRecord
     include Alunos::Busca
+
+    has_many :notas_alunos
     
     # def self.busca_por_parametro(params = {})
     #   alunos = Aluno.all

@@ -84,6 +84,7 @@
         <th>idade</th>
         <th>Obs</th>
         <th>Data</th>
+        <th>Notas</th>
         <th></th>
         <th></th>
         <th></th>
@@ -99,6 +100,20 @@
         <td><%= aluno.idade %></td>
         <td><%= aluno.obs %></td>
         <td><%= aluno.created_at.strftime("%d/%m/%Y %H:%M:%S") %></td>
+        <td>
+          <% if aluno.notas_alunos.count > 0 %>
+            <ul>
+              <% aluno.notas_alunos.each do |nota| %>
+                <li>
+                  <b>Nota:</b> <%= nota.nota %><br>
+                  <b>Obs:</b> <%= nota.obs %>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            O aluno não possui notas
+          <% end %>
+        </td>
         <td><%= link_to 'Show', aluno %></td>
         <td><%= link_to 'Edit', edit_aluno_path(aluno) %></td>
         <td><%= link_to 'Destroy', aluno, method: :delete, data: { confirm: 'Are you sure?' } %></td>

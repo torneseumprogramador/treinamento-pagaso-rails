@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  aluno: one
+  nota: 1.5
+  obs: MyText
+
+two:
+  aluno: two
+  nota: 1.5
+  obs: MyText

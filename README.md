@@ -20,8 +20,11 @@ between
 busca por in,
 busca autocomplete
 
+criar itens relacionados
+
 por join, 
 por union
 grup by
+
 outros
 `````
