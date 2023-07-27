@@ -67,7 +67,7 @@ class AlunosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def aluno_params
-      params.require(:aluno).permit(:nome, :email, :obs)
+      params.require(:aluno).permit(:nome, :email, :obs, :sobrenome, :idade)
     end
 
     def testando_hook

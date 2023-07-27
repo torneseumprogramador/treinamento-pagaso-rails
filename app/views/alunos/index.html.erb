@@ -27,6 +27,20 @@
       </div>
     </div>
     <div class="form-group">
+      <div class="form-group col-sm-6">
+        <label class="col-sm-3 control-label" for="aluno_obs">Idade Inicio</label>
+        <div class="col-sm-9">
+          <input class="form-control" type="text" name="idade_ini" value="<%= params[:idade_ini] %>" >
+        </div>
+      </div>
+      <div class="form-group col-sm-6" style="width: 56%;">
+        <label class="col-sm-3 control-label" for="aluno_obs">Idade Fim</label>
+        <div class="col-sm-9">
+          <input class="form-control" type="text" name="idade_fim" value="<%= params[:idade_fim] %>" >
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
       <div class="col-sm-12" style="text-align:right">
         <input type="submit" value="Buscar" class="btn btn-primary" data-disable-with="Pesquisando ...">
       </div>
@@ -39,7 +53,9 @@
     <thead>
       <tr>
         <th>Nome</th>
+        <th>Sobrenome</th>
         <th>Email</th>
+        <th>idade</th>
         <th>Obs</th>
         <th></th>
         <th></th>
@@ -49,10 +65,12 @@
 
     <tbody>
       <%= content_tag_for(:tr, @alunos) do |aluno| %>
-            <td><%= aluno.nome %></td>
-            <td><%= aluno.email %></td>
-            <td><%= aluno.obs %></td>
-            <td><%= link_to 'Show', aluno %></td>
+        <td><%= aluno.nome %></td>
+        <td><%= aluno.sobrenome %></td>
+        <td><%= aluno.email %></td>
+        <td><%= aluno.idade %></td>
+        <td><%= aluno.obs %></td>
+        <td><%= link_to 'Show', aluno %></td>
         <td><%= link_to 'Edit', edit_aluno_path(aluno) %></td>
         <td><%= link_to 'Destroy', aluno, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
