@@ -19,8 +19,12 @@ busca por > <,
 between
 busca por in,
 busca autocomplete
-
+paginação
+will paginate
 criar itens relacionados
+query n + 1
+
+query bruta para evitar n + 1
 
 por join, 
 por union
