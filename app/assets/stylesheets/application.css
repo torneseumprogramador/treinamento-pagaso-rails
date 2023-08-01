@@ -32,3 +32,8 @@
    margin-top: 2px;
    overflow: scroll;
  }
+
+ .paginacao{
+  text-align: center;
+  margin-bottom: 100px;
+ }

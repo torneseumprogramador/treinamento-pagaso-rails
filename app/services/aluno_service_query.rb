@@ -21,10 +21,18 @@ class AlunoServiceQuery
             alunos = alunos.where(id: array_ids)
         end
 
+        page = params[:page].to_i
+        page = 1 if page < 1
+        limit = 5
+        offset = limit * (page - 1)
+
+        alunos = alunos.limit(limit).offset(offset)
+        alunos = alunos.order(id: :asc)
+
         puts "===================="
         puts alunos.to_sql
         puts "===================="
 
-        alunos
+        [alunos, limit, page]
     end
 end

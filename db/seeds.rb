@@ -8,17 +8,37 @@
 
 
 # Criação de 30 clientes de exemplo
-30.times do |n|
-    nome = Faker::Name.name
-    email = Faker::Internet.email
-    observacao = Faker::Lorem.paragraph
+# 30.times do |n|
+#     nome = Faker::Name.name
+#     email = Faker::Internet.email
+#     observacao = Faker::Lorem.paragraph
     
-    Contato.create!(
-      nome: nome,
-      email: email,
-      observacao: observacao,
-      created_at: Time.current,
-      updated_at: Time.current
-    )
-end
+#     Contato.create!(
+#       nome: nome,
+#       email: email,
+#       observacao: observacao,
+#       created_at: Time.current,
+#       updated_at: Time.current
+#     )
+# end
   
+
+5000.times do |n|
+  aluno = Aluno.create!(
+    nome: Faker::Name.name,
+    email: Faker::Internet.email,
+    obs: Faker::Lorem.paragraph,
+    sobrenome: Faker::Name.last_name,
+    idade: Faker::Number.between(from: 18, to: 25),
+    created_at: Time.current,
+    updated_at: Time.current
+  )
+
+  4.times do |n|
+    NotasAluno.create!(
+      aluno_id: aluno.id,
+      nota: rand(11),
+      obs: Faker::Lorem.paragraph
+    )
+  end
+end
