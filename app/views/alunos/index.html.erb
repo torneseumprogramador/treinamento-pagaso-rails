@@ -121,18 +121,7 @@
     </tbody>
   </table>
 
-  <div class="paginacao">
-    <% if params[:page].to_i > 1 %>
-      <a class="btn btn-primary" href='<%= "/alunos?nome=#{params[:nome]}&email=#{params[:email]}&obs=#{params[:obs]}&ids=#{params[:ids]}&idade_ini=#{params[:idade_ini]}&idade_fim=#{params[:idade_fim]}&data_ini=#{params[:data_ini]}&data_fim=#{params[:data_fim]}&page=#{@page.to_i - 1}" %>'>
-      Anterior
-      </a>
-    <% end %>
-
-    <% if @alunos.length == @limit %>
-      <a class="btn btn-primary" href='<%= "/alunos?nome=#{params[:nome]}&email=#{params[:email]}&obs=#{params[:obs]}&ids=#{params[:ids]}&idade_ini=#{params[:idade_ini]}&idade_fim=#{params[:idade_fim]}&data_ini=#{params[:data_ini]}&data_fim=#{params[:data_fim]}&page=#{@page.to_i + 1}" %>'>
-      Próximo
-      </a>
-    <% end %>
-
+  <div class="digg_pagination paginacao">
+    <%= will_paginate @alunos %>
   </div>
 </div>

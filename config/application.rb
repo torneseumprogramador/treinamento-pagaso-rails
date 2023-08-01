@@ -16,5 +16,7 @@ module Treinamento
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.autoload_paths << "#{Rails.root}/app/services"
+    config.i18n.default_locale = :'pt-BR'
+    config.time_zone = 'Brasilia'
   end
 end
