@@ -1,0 +1,41 @@
+<div class="page-header">
+  <%= link_to new_pedido_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Pedido
+  <% end %>
+  <h1>Listing pedidos</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Cliente</th>
+        <th>Telefone</th>
+        <td>Valor total</td>
+        <td>Produto</td>
+        <td>Produto valor</td>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @pedidos.each do |pedido| %>
+        <tr>
+          <td><%= pedido["pedido_id"] %></td>
+          <td><%= pedido["nome"] %></td>
+          <td><%= pedido["telefone"] %></td>
+          <td><%= pedido["valor_total"] %></td>
+          <td><%= pedido["produto_nome"] %></td>
+          <td><%= pedido["produto_valor"] %></td>
+          <td><%= link_to 'Show', pedido_path(pedido["pedido_id"]) %></td>
+          <td><%= link_to 'Edit', edit_pedido_path(pedido["pedido_id"]) %></td>
+          <td><%= link_to 'Destroy', pedido_path(pedido["pedido_id"]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

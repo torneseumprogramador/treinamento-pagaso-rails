@@ -1,0 +1,32 @@
+<%= form_for(@pedidos_produto, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @pedidos_produto.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@pedidos_produto.errors.count, "error") %> prohibited this pedidos_produto from being saved:</h4>
+
+      <ul>
+      <% @pedidos_produto.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :pedido_id, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.collection_select :pedido_id, Pedido.all, :id, :id, { prompt: "[Selecione]" }, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :produto_id, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.collection_select :produto_id, Produto.all, :id, :nome, { prompt: "[Selecione]" }, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

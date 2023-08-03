@@ -1,0 +1,31 @@
+<div class="page-header">
+  <%= link_to new_pedidos_produto_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Pedidos produto
+  <% end %>
+  <h1>Listing pedidos_produtos</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Pedido</th>
+            <th>Produto</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @pedidos_produtos) do |pedidos_produto| %>
+            <td><%= pedidos_produto.pedido.cliente.nome %></td>
+            <td><%= pedidos_produto.produto.nome %></td>
+            <td><%= link_to 'Show', pedidos_produto %></td>
+        <td><%= link_to 'Edit', edit_pedidos_produto_path(pedidos_produto) %></td>
+        <td><%= link_to 'Destroy', pedidos_produto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
