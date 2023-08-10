@@ -32,7 +32,7 @@ class AlunoServiceQuery
         # alunos = alunos.includes(:notas_alunos) # não faz o join porém faz um select in com os ids dos alunos (Um pouco melhor)
         alunos = alunos.includes(:notas_alunos).references(:notas_alunos) # com somente 1 query eu trago todos os dados da tabela relacional (melhor performance)
 
-        alunos = alunos.paginate(page: params[:page], per_page: 1000)
+        alunos = alunos.paginate(page: params[:page], per_page: 10)
         
         # alunos = alunos.limit(5)
         alunos = alunos.order(id: :asc)

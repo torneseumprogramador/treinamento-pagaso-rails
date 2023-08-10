@@ -23,12 +23,12 @@ paginação
 will paginate
 criar itens relacionados
 query n + 1
-
 query bruta para evitar n + 1
-
 por join, 
 por union
 grup by
+
+Usar o JS para cadastro de notas na tela do cadastro de alunos
 
 outros
 `````
