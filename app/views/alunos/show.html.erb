@@ -26,4 +26,21 @@
   <dt>Obs:</dt>
   <dd><%= @aluno.obs %></dd>
 
+  <dt>Notas:</dt>
+  <% if @aluno.notas_alunos.count > 0 %>
+    <dd>
+      <ul>
+        <% @aluno.notas_alunos.each do |nota| %>
+          <li>
+            <b>Nota:</b> <%= nota.nota %><br>
+            <b>Obs:</b> <%= nota.obs %>
+          </li>
+        <% end %>
+      </ul>
+    <dd>
+  <% else %>
+    <dd>
+      O aluno não possui notas
+    <dd>
+  <% end %>
 </dl>

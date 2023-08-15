@@ -29,6 +29,7 @@ por union
 grup by
 
 Usar o JS para cadastro de notas na tela do cadastro de alunos
+transformar o código acima para o jquery
 
 outros
 `````

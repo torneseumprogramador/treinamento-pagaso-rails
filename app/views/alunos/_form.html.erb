@@ -45,25 +45,49 @@
 
   <hr>
   <div style="text-align:right">
-    <button type="button" onclick="AdicionarNota()">Adicionar Nota</button>
+    <button type="button" onclick="adicionarNota()">Adicionar Nota</button>
     <hr>
 
     <div id="campos-notas">
+      <% @aluno.notas_alunos.each do |nota| %>
+        <div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="aluno_nota">Nota</label>
+            <div class="col-sm-10">
+              <input class="form-control" type="text" name="aluno[boletim][][nota]" value="<%= nota.nota %>" id="aluno_nota">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="aluno_obs_nota">Obs Nota</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" name="aluno[boletim][][obs]" id="aluno_obs_nota"><%= nota.obs %></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="button" onclick="excluirCamposNota(this)" class="btn btn-danger" style="margin-right: 15px;">Excluir</button>
+          </div>
+          <hr>
+        </div>
+      <% end %>
     </div>
 
     <div id="modelo-campos-notas" style="display:none">
       <div class="form-group">
         <label class="col-sm-2 control-label" for="aluno_nota">Nota</label>
         <div class="col-sm-10">
-          <input class="form-control" type="text" name="aluno[nota]" id="aluno_nota">
+          <input class="form-control" type="text" name="aluno[boletim][][nota]" id="aluno_nota">
         </div>
       </div>
 
       <div class="form-group">
         <label class="col-sm-2 control-label" for="aluno_obs_nota">Obs Nota</label>
         <div class="col-sm-10">
-          <textarea class="form-control" name="aluno[obs_nota]" id="aluno_obs_nota"></textarea>
+          <textarea class="form-control" name="aluno[boletim][][obs]" id="aluno_obs_nota"></textarea>
         </div>
+      </div>
+      <div class="form-group">
+        <button type="button" onclick="excluirCamposNota(this)" class="btn btn-danger" style="margin-right: 15px;">Excluir</button>
       </div>
       <hr>
     </div>
@@ -76,9 +100,29 @@
 <% end %>
 
 <script>
-const AdicionarNota = ()=> {
+const adicionarNota = ()=> {
   let html = document.querySelector("#modelo-campos-notas").innerHTML;
-  html = `<div>${html}</div>`
-  document.querySelector("#campos-notas").innerHTML += html
+  const dv = document.createElement("div");
+  dv.innerHTML = html;
+  document.querySelector("#campos-notas").append(dv);
+}
+
+const excluirCamposNota = (button) => {
+  let preenchido = false;
+  const dv = button.parentNode.parentNode;
+  const nota = dv.querySelector('#aluno_nota')
+  const obs = dv.querySelector('#aluno_obs_nota')
+
+  if((nota && nota.value != "") || (obs && obs.value != ""))
+    preenchido = true;
+  
+
+  if(preenchido){
+    if(confirm("Confirma exclusão ? os dados digitados serão perdidos."))
+      dv.remove();
+    return;
+  }
+
+  dv.remove();
 }
 </script>

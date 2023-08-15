@@ -27,6 +27,7 @@ class AlunosController < ApplicationController
 
     respond_to do |format|
       if @aluno.save
+        preencher_boletim(@aluno)
         format.html { redirect_to aluno_url(@aluno), notice: "Aluno was successfully created." }
         format.json { render :show, status: :created, location: @aluno }
       else
@@ -60,6 +61,20 @@ class AlunosController < ApplicationController
   end
 
   private
+    def preencher_boletim(aluno)
+      if( params["aluno"].present? && params["aluno"]["boletim"].present? )
+        NotasAluno.where(aluno_id: aluno.id).destroy_all
+
+        params["aluno"]["boletim"].each do |item|
+          NotasAluno.create(
+            aluno_id: aluno.id, 
+            nota: item["nota"], 
+            obs: item["obs"]
+          ) if item["nota"].present?
+        end
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_aluno
       @aluno = Aluno.find(params[:id])
