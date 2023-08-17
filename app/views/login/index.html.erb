@@ -1,0 +1,42 @@
+<section class="py-5 text-center container">
+    <div class="row py-lg-5" style="text-align: center;">
+      <div class="col-lg-6 col-md-8 mx-auto" style="float: none;display: inline-block;">
+        <h1 class="fw-light">Login</h1>
+        <section class="w-100 p-4 d-flex justify-content-center pb-4">
+          <form style="text-align:left" method="post" action="/logar">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="email" id="email" name="email" class="form-control">
+              <label class="form-label" for="email" style="margin-left: 0px;">Email address</label>
+            <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 88.8px;"></div><div class="form-notch-trailing"></div></div></div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="senha" name="senha" class="form-control">
+              <label class="form-label" for="senha" style="margin-left: 0px;">Password</label>
+            <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 64px;"></div><div class="form-notch-trailing"></div></div></div>
+
+            <!-- 2 column grid layout for inline styling -->
+            <div class="row mb-4" style="text-align:center">
+              <div class="col d-flex justify-content-center">
+                <!-- Checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="form2Example31" name="lembrar" checked="">
+                  <label class="form-check-label" for="form2Example31"> Remember me </label>
+                </div>
+              </div>
+
+              <div class="col">
+                <a href="#!">Forgot password?</a>
+              </div>
+            </div>
+            <br>
+
+            <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+          </form>
+        </section>
+      </div>
+    </div>
+</section>

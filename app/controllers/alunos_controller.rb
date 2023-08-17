@@ -41,6 +41,7 @@ class AlunosController < ApplicationController
   def update
     respond_to do |format|
       if @aluno.update(aluno_params)
+        preencher_boletim(@aluno)
         format.html { redirect_to aluno_url(@aluno), notice: "Aluno was successfully updated." }
         format.json { render :show, status: :ok, location: @aluno }
       else

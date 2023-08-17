@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :administradors
   resources :pedidos_produtos
   resources :produtos
   resources :pedidos
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get "sobre", to: "home#sobre"
+  get "login", to: "login#index"
+  post "logar", to: "login#logar"
   
   # get "contatos", to: "contato#lista"
   # get "contato", to: "contato#index"
